@@ -1,0 +1,30 @@
+1. 
+	i.  
+		curl
+	ii. 
+		2537 instances of the character a
+		630 instances of character g
+		I determined this using the find command in my text editor
+	iii.
+		Using a text editor( I use Sublime ), I can change all instances of a variable with a keyboard shortcut ( 'command + control + g' in this case ). Just find a unique instance of that variable declaration or assignment. In this case ' a=' would work. 
+	iv.
+2
+	iii.
+		Find unused code using Chrome Dev Tools audit functions. These bits were found to be unused:
+
+			#footer-container
+			#footer
+			small, .small
+			#footer #copyright
+
+		Use git blame src/style.css from the repo root to determine who committed the code. 
+	iv.
+		I went ahead and used sass to compile the scss.
+3.
+	i.
+		I would ask the client to triple check thir authorization details( usernames, passwords, client ids, client secrets etc. ), and check that they are trying to access the correct resource.
+	ii.
+		For a 500 Internal Error, we would have to find out what resource they are trying to access. If the endpoint is valid, a 500 response would indicate an issue with the resource, therefore, an issue on the API side. Time to dig through internal error logs and run tests.
+	iii.
+		GET and POST are HTTP methods used for the retrieval of resources, and the sending of resources for the purpose of updating existing resources, respectively. Using them incorrectly could result in errors if the endpoint is not designed to handle parameters( for instance a GET request with parameters), or a lack of parameters, that may result from using these HTTP requests incorrectly.
+	iv.
