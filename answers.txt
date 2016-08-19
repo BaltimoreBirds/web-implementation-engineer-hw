@@ -38,4 +38,31 @@
 	iii.
 		Yes, using this parameter one could return 200 repos. One could also use the ?per_page parameter to set the pagination limit to 200, and return just one page if they so wished.
 	iv.
-		
+		#Below is a simple(and abbreviated) ruby script to parse out the repo names
+		#The curl script can be found in curl_repo.sh 
+		#the actual parse script can be found in opower_repos.rb
+
+		require 'json'
+
+		repos = '[
+	  {
+	    "id": 7656623,
+	    "name": "AFNetworking",
+	    ...
+	    ...
+	    }
+		]'
+
+		# parse github JSON return
+		json_repos = JSON.parse(repos)
+		#get num of returned repos(30)
+		repos_count = json_repos.count
+		#Create place to store names
+		repo_names = []
+		# Set iterator variable
+		i = 0
+
+		while i < repos_count do
+		  repo_names.push(json_repos[i]["name"])
+		  i+= 1
+		end
