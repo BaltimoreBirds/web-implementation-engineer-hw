@@ -28,7 +28,44 @@
 	iii.
 		GET and POST are HTTP methods used for the retrieval of resources, and the sending of resources for the purpose of updating existing resources, respectively. Using them incorrectly could result in errors if the endpoint is not designed to handle parameters( for instance a GET request with parameters), or a lack of parameters, that may result from using these HTTP requests incorrectly.
 4.
+	Create Users table with indexes
+
+	CREATE TABLE Users
+	(
+	id INT NOT NULL,
+	username VARCHAR(255) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	signUpDate DATETIME DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (id)
+	)
+	#PRIMARY KEY automatically indexed here^^.
+
+	CREATE INDEX usernameIndex
+	ON Users (username)
+
+	#Creates index on the username
+
 	i.
+		SELECT username, signUpDate, COUNT(username) 
+		FROM users
+		GROUP BY username
+		HAVING ( COUNT(username) > 1 )
+	ii.
+		SELECT DISTINCT email
+		FROM
+		(
+			SELECT username, signUpDate, COUNT(username) 
+			FROM users
+			GROUP BY username
+			HAVING ( COUNT(username) > 1 )
+		)
+	iii.
+		SELECT id, username, email
+		FROM Users
+		WHERE id NOT IN (SELECT user_id FROM user_actions)
+	iv.
+		ALTER TABLE Users
+		ADD UNIQUE (username)
 
 5.
 	i.

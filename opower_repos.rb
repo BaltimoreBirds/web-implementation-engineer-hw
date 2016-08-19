@@ -2655,6 +2655,7 @@ repo_names = []
 # Set iterator variable
 i = 0
 
+#Loop repos and store names
 while i < repos_count do
   repo_names.push(json_repos[i]["name"])
   i+= 1
