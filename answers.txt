@@ -65,7 +65,7 @@
 		SELECT id, username, email
 		FROM Users
 		WHERE id NOT IN (SELECT user_id FROM user_actions)
-		
+
 	iv.
 		ALTER TABLE Users
 		ADD UNIQUE (username)
@@ -80,7 +80,7 @@
 	iv.
 		#Below is a simple(and abbreviated) ruby script to parse out the repo names
 		#The curl script can be found in curl_repo.sh 
-		#the actual parse script can be found in opower_repos.rb
+		#The actual parse script can be found in opower_repos.rb
 
 		require 'json'
 
