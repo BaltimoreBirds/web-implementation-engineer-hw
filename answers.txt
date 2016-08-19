@@ -6,7 +6,7 @@
 		630 instances of character g
 		I determined this using the find command in my text editor
 	iii.
-		Using a text editor( I use Sublime ), I can change all instances of a variable with a keyboard shortcut ( 'command + control + g' in this case ). Just find a unique instance of that variable declaration or assignment. In this case ' a=' would work. 
+		Using a text editor( I use Sublime ), I can change all instances of a variable with a keyboard shortcut ( 'command + control + g' in this case ). Just find a specific instance of that variable declaration or assignment. In this case ' a=' would work. 
 	iv.
 2
 	iii.
@@ -26,7 +26,7 @@
 	ii.
 		For a 500 Internal Error, we would have to find out what resource they are trying to access. If the endpoint is valid, a 500 response would indicate an issue with the resource, therefore, an issue on the API side. Time to dig through internal error logs and run tests.
 	iii.
-		GET and POST are HTTP methods used for the retrieval of resources, and the sending of resources for the purpose of updating existing resources, respectively. Using them incorrectly could result in errors if the endpoint is not designed to handle parameters( for instance a GET request with parameters), or a lack of parameters, that may result from using these HTTP requests incorrectly.
+		GET and POST are HTTP methods used for the retrieval of resources, and the sending of resources for the purpose of updating resources, respectively. Using them incorrectly could result in errors if the endpoint is not designed to handle parameters( for instance a GET request with parameters), or a lack of parameters, that may result from using these HTTP requests incorrectly.
 4.
 	Create Users table with indexes
 
@@ -43,13 +43,14 @@
 	CREATE INDEX usernameIndex
 	ON Users (username)
 
-	#Creates index on the username
+	#Creates index on the username^^
 
 	i.
 		SELECT username, signUpDate, COUNT(username) 
 		FROM users
 		GROUP BY username
 		HAVING ( COUNT(username) > 1 )
+
 	ii.
 		SELECT DISTINCT email
 		FROM
@@ -59,10 +60,12 @@
 			GROUP BY username
 			HAVING ( COUNT(username) > 1 )
 		)
+
 	iii.
 		SELECT id, username, email
 		FROM Users
 		WHERE id NOT IN (SELECT user_id FROM user_actions)
+		
 	iv.
 		ALTER TABLE Users
 		ADD UNIQUE (username)
