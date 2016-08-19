@@ -27,4 +27,15 @@
 		For a 500 Internal Error, we would have to find out what resource they are trying to access. If the endpoint is valid, a 500 response would indicate an issue with the resource, therefore, an issue on the API side. Time to dig through internal error logs and run tests.
 	iii.
 		GET and POST are HTTP methods used for the retrieval of resources, and the sending of resources for the purpose of updating existing resources, respectively. Using them incorrectly could result in errors if the endpoint is not designed to handle parameters( for instance a GET request with parameters), or a lack of parameters, that may result from using these HTTP requests incorrectly.
+4.
+	i.
+
+5.
+	i.
+		For the first, the status returned is 404 Not Found. The second is 200 Ok. The second link is valid. 
+	ii.
+		Use the ?page parameter to increases the number of pages returned( 30 items per page by default ).
+	iii.
+		Yes, using this parameter one could return 200 repos. One could also use the ?per_page parameter to set the pagination limit to 200, and return just one page if they so wished.
 	iv.
+		
